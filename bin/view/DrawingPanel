@@ -1,0 +1,13 @@
+import java.awt.*;
+import javax.swing.*;
+package view;
+
+public class DrawingPanel extends JFrame {
+    DrawingPanel(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(1280,720);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
+    public void paint(Graphics g)
+}
