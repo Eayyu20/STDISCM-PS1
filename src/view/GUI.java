@@ -1,10 +1,12 @@
 package view;
 import javax.swing.*;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.color.ColorSpace;
+import controller.Particle;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class GUI {
 
@@ -34,6 +36,8 @@ public class GUI {
         label = new JLabel();
         label.setText("Hello");
         window.add(label, BorderLayout.CENTER);
+
+        mainpanel.add(new Particle(12,24,45,10));
     }
 
     public void toggleVisibility(){
