@@ -18,7 +18,7 @@ public class Particle extends JComponent{
     }
     //move function
     //while loop that'll make the point move throughout the velocities and it hits walls
-    void Move()
+    public void Move()
     {
             //update position
             bounce();
@@ -37,5 +37,17 @@ public class Particle extends JComponent{
         {
             angle = 360 - angle;
         }
+    }
+    public float getXpos(){
+        return xpos;
+    }
+    public float getYpos(){
+        return ypos;
+    }
+    public float getvel(){
+        return vel;
+    }
+    public float getang(){
+        return angle;
     }
 }

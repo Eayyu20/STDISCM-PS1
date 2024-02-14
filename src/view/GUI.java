@@ -27,6 +27,7 @@ public class GUI {
         mainpanel.setSize(1280, 720);
         mainpanel.setBackground(Color.white);
         window.add(mainpanel);
+        //mainpanel.drawWall(0, 0, 1280, 720, null);
         
         canvas = new JPanel();
         canvas.setSize(220, 720);
