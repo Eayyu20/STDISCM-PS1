@@ -6,11 +6,12 @@ import java.awt.HeadlessException;
 import java.awt.color.ColorSpace;
 import controller.Particle;
 import java.awt.Graphics2D;
+import view.DrawingPanel;
 
 public class GUI {
 
     private JFrame window;
-    private JPanel mainpanel;
+    private DrawingPanel mainpanel;
     private JPanel canvas;
     private JLabel label;
     private static int SCREEN_WIDTH = 1500;
@@ -22,9 +23,9 @@ public class GUI {
         window.setUndecorated(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        mainpanel = new JPanel();
+        mainpanel = new DrawingPanel();
         mainpanel.setSize(1280, 720);
-        mainpanel.setBackground(Color.blue);
+        mainpanel.setBackground(Color.white);
         window.add(mainpanel);
         
         canvas = new JPanel();
