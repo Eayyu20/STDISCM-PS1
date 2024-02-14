@@ -2,12 +2,11 @@ import java.awt.*;
 import javax.swing.*;
 package view;
 
-public class DrawingPanel extends JFrame {
+public class DrawingPanel extends JPanel {
     DrawingPanel(){
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1280,720);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
     }
-    public void paint(Graphics g)
+    public void paint(Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
+        g2D.drawLine(0,0,1280,720);
+    }
 }
