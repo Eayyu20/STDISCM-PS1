@@ -21,19 +21,20 @@ public class DrawingPanel extends JPanel implements ActionListener{
     Timer timer;
     public float xpos = 0;
     public float ypos = 0;
+    public long lastTime;
+    private int frames;
+    private int fps;
     Random rand = new Random(); //test
     DrawingPanel(){
-        timer = new Timer(10, this);
-        timer.start();
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
-        palist.add(testp);
-        palist.add(tesp);
-        palist.add(wasp);
-        for(int i=0;i<10000;i++){
-            palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(50)));
+        for(int i=0;i<1000;i++){
+            palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(49)+1));
         }
         wlist.add(wah);
+        timer = new Timer(1000/60, this);
+        timer.start();
+        lastTime = System.currentTimeMillis();
     }
     //test
     public void insertParticle(float x, float y, float a, float v){
@@ -51,12 +52,22 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.setColor(Color.black);
         g2d.fillRect(0, 0, 1280, 720);
         g2d.setColor(Color.white);
+        
         for (int i = 0; i<palist.size(); i++){
             g2d.fillOval(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),2,2);
         } 
         for (int i = 0; i<wlist.size(); i++){
             g2d.drawLine(wlist.get(i).getX1(), wlist.get(i).getY1(), wlist.get(i).getX2(), wlist.get(i).getY2());
         }
+        frames++;
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastTime >= 1000) {
+            fps = frames;
+            frames = 0;
+            lastTime = currentTime;
+        }
+        g2d.setColor(Color.RED);
+        g2d.drawString("FPS: " + fps, 10, 10);
     }
     @Override
     public void actionPerformed(ActionEvent e){
