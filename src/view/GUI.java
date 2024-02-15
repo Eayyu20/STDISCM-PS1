@@ -146,6 +146,48 @@ public class GUI extends JFrame implements ActionListener{
         submitParticle = new JButton("Submit Particle");
         submitParticle.addActionListener(this);
         sidepanel.add(submitParticle);
+
+        new LabelFormat("Add Wall", sidepanel, Font.BOLD, 15, BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        
+        new LabelFormat("x1", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        x1Input = new JTextField();
+        x1Input.setMaximumSize(new Dimension(100, 30));
+        x1Input.setPreferredSize(new Dimension(100,20));
+        x1Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
+        x1Input.setHorizontalAlignment(JTextField.CENTER);
+        x1Input.setAlignmentY(JTextField.CENTER);
+        sidepanel.add(x1Input);
+
+        new LabelFormat("y1", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        y1Input = new JTextField();
+        y1Input.setMaximumSize(new Dimension(100, 30));
+        y1Input.setPreferredSize(new Dimension(100,20));
+        y1Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
+        y1Input.setHorizontalAlignment(JTextField.CENTER);
+        y1Input.setAlignmentY(JTextField.CENTER);
+        sidepanel.add(y1Input);
+
+        new LabelFormat("x2", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        x2Input = new JTextField();
+        x2Input.setMaximumSize(new Dimension(100, 30));
+        x2Input.setPreferredSize(new Dimension(100,20));
+        x2Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
+        x2Input.setHorizontalAlignment(JTextField.CENTER);
+        x2Input.setAlignmentY(JTextField.CENTER);
+        sidepanel.add(x2Input);
+
+        new LabelFormat("y2", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        y2Input = new JTextField();
+        y2Input.setMaximumSize(new Dimension(100, 30));
+        y2Input.setPreferredSize(new Dimension(100,20));
+        y2Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
+        y2Input.setHorizontalAlignment(JTextField.CENTER);
+        y2Input.setAlignmentY(JTextField.CENTER);
+        sidepanel.add(y2Input);
+
+        submitWall = new JButton("Submit Wall");
+        submitWall.addActionListener(this);
+        sidepanel.add(submitWall);
     }
 
     public void toggleVisibility(){
@@ -155,6 +197,9 @@ public class GUI extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submitParticle){
+            
+            // add error checking
+            
             System.out.println(nInput.getText());
             System.out.println(xStartInput.getText());
             System.out.println(yStartInput.getText());
@@ -179,6 +224,19 @@ public class GUI extends JFrame implements ActionListener{
 
         }
         else if (e.getSource() == submitWall){
+
+            // add error checking
+
+            System.out.println(x1Input.getText());
+            System.out.println(y1Input.getText());
+            System.out.println(x2Input.getText());
+            System.out.println(y2Input.getText());
+
+            // reset
+            x1Input.setText("");
+            y1Input.setText("");
+            x2Input.setText("");
+            y2Input.setText("");
         
         }
     }
