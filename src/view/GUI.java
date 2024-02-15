@@ -211,6 +211,18 @@ public class GUI extends JFrame implements ActionListener{
             System.out.println(velEndInput.getText());
             // mainpanel.insertParticle(Float.parseFloat(xInput.getText()), Float.parseFloat(yInput.getText()), Float.parseFloat(deltaInput.getText()), Float.parseFloat(vInput.getText()));
             
+            if (!xEndInput.getText().equals("")){
+                mainpanel.distinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(xEndInput.getText()), Float.parseFloat(yEndInput.getText()), Float.parseFloat(angleStartInput.getText()), Float.parseFloat(velStartInput.getText()));
+            }
+            else if (!angleEndInput.getText().equals("")){
+                mainpanel.angleinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()), Float.parseFloat(angleEndInput.getText()),Float.parseFloat(velStartInput.getText()));
+            }
+            else if (!angleEndInput.getText().equals("")){
+                mainpanel.angleinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()), Float.parseFloat(velEndInput.getText()));
+            }
+            else{ //more than one has an input which is an error
+                System.out.println("error, more than one has an end, make sure that only one type has a end");
+            }
             // reset
             nInput.setText("");
             xStartInput.setText("");
