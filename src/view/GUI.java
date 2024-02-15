@@ -243,7 +243,7 @@ public class GUI extends JFrame implements ActionListener{
             System.out.println(y1Input.getText());
             System.out.println(x2Input.getText());
             System.out.println(y2Input.getText());
-
+            mainpanel.insertWall(Integer.parseInt(x1Input.getText()), Integer.parseInt(y1Input.getText()), Integer.parseInt(x2Input.getText()), Integer.parseInt(y2Input.getText()));
             // reset
             x1Input.setText("");
             y1Input.setText("");
