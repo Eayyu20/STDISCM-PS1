@@ -14,10 +14,6 @@ public class DrawingPanel extends JPanel implements ActionListener{
     final int PANEL_HEIGHT = 720;
     public ArrayList<Particle> palist;
     public ArrayList<Wall> wlist;
-    public Particle testp = new Particle(0, 0, 45,10);
-    public Particle tesp = new Particle(50, 20, 70,30);
-    public Particle wasp = new Particle(1270, 710, -60,5);
-    public Wall wah = new Wall(1280/2,0,1280/2,720);
     Timer timer;
     public float xpos = 0;
     public float ypos = 0;
@@ -83,7 +79,8 @@ public class DrawingPanel extends JPanel implements ActionListener{
     }
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
-        //g2d.drawLine(0,0,1280,720);
+        g2d.translate(0, getHeight());
+        g2d.scale(1,-1);
         g2d.setBackground(Color.black);
         g2d.setColor(Color.black);
         g2d.fillRect(0, 0, 1280, 720);
@@ -103,7 +100,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
             lastTime = currentTime;
         }
         g2d.setColor(Color.RED);
-        g2d.drawString("FPS: " + fps, 10, 10);
+        g2d.scale(1,-1);
+        g2d.translate(0, -getHeight());
+        g2d.drawString("FPS: " + fps, 10,10);
     }
     @Override
     public void actionPerformed(ActionEvent e){
