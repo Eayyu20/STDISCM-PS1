@@ -1,27 +1,37 @@
 package controller;
-
 import javax.swing.JComponent;
-
+import controller.Wall;
+import java.awt.Rectangle;
+import java.util.ArrayList;
 public class Particle extends JComponent{
 
-    float xpos;
-    float ypos;
+    public float xpos;
+    public float ypos;
     public int xvel; 
     public int yvel;
+    public ArrayList<Wall> wlibrary;
     public Particle(float x, float y, float a, float v){
         xpos = x;
         ypos = y;
         xvel = (int) (v*Math.cos(Math.toRadians(a)));
         yvel = (int) (v*Math.sin(Math.toRadians(a)));
+        wlibrary = new ArrayList<>();
     }
     //move function
+    
     //while loop that'll make the point move throughout the velocities and it hits walls
     public void Move()
     {
+        /* 
+            for (Wall wall: wlibrary){
+                if (this.intersects)
+            }*/
             //update position
             bounce();
             xpos += xvel;
             ypos += yvel;
+            repaint();
+            
     }
         
     

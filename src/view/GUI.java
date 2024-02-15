@@ -16,6 +16,7 @@ public class GUI {
     private DrawingPanel mainpanel;
     private JPanel sidepanel;
     private JLabel label;
+    private Particle testp;
     private static int SCREEN_WIDTH = 1550;
     private static int SCREEN_HEIGHT = 720;
 
@@ -41,7 +42,6 @@ public class GUI {
         angle.setPreferredSize(new Dimension(100,20));
         angle.setFont(new Font("Consolas", Font.PLAIN, 35));
         sidepanel.add(angle);
-
     }
 
     public void toggleVisibility(){

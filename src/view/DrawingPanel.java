@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.*;
 import controller.Particle;
 import controller.Wall;
@@ -20,14 +21,18 @@ public class DrawingPanel extends JPanel implements ActionListener{
     Timer timer;
     public float xpos = 0;
     public float ypos = 0;
+    Random rand = new Random(); //test
     DrawingPanel(){
-        timer = new Timer(1000, this);
+        timer = new Timer(10, this);
         timer.start();
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
         palist.add(testp);
         palist.add(tesp);
         palist.add(wasp);
+        for(int i=0;i<10000;i++){
+            palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(50)));
+        }
         wlist.add(wah);
     }
     //test
@@ -47,7 +52,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.fillRect(0, 0, 1280, 720);
         g2d.setColor(Color.white);
         for (int i = 0; i<palist.size(); i++){
-            g2d.fillOval(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),10,10);
+            g2d.fillOval(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),2,2);
         } 
         for (int i = 0; i<wlist.size(); i++){
             g2d.drawLine(wlist.get(i).getX1(), wlist.get(i).getY1(), wlist.get(i).getX2(), wlist.get(i).getY2());
@@ -63,7 +68,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
             xpos = palist.get(i).getXpos();
             ypos = palist.get(i).getYpos();
             repaint();
-        }        
+        }
     }
     /*public void drawWall(int x1, int y1, int x2, int y2, Graphics g){
         Graphics2D g2d = (Graphics2D) g;
