@@ -21,7 +21,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
     public float xpos = 0;
     public float ypos = 0;
     DrawingPanel(){
-        timer = new Timer(10, this);
+        timer = new Timer(1000, this);
         timer.start();
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
@@ -56,6 +56,8 @@ public class DrawingPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         //for every particle in the list
+        //make a thread that draws particles
+        //make a thread that draws walls
         for (int i = 0; i<palist.size(); i++){
             palist.get(i).Move();
             xpos = palist.get(i).getXpos();
