@@ -14,14 +14,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
     Timer timer;
     public float xpos = 0;
     public float ypos = 0;
-    public float angle = 45;
-    public float vel = 10;
-    public int xvel = (int) (vel*Math.cos(Math.toRadians(angle)));
-    public int yvel = (int) (vel*Math.sin(Math.toRadians(angle)));
     DrawingPanel(){
         timer = new Timer(10, this);
         timer.start();
-        
     }
     //test
     public void paint(Graphics g){
@@ -31,20 +26,13 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.setColor(Color.black);
         g2d.fillRect(0, 0, 1280, 720);
         g2d.setColor(Color.white);
-        g2d.fillOval(Math.round(xpos),Math.round(ypos),10,10);
+        g2d.fillOval(Math.round(testp.getXpos()),Math.round(testp.getYpos()),10,10);
     }
     @Override
     public void actionPerformed(ActionEvent e){
-        if (xpos >= 1280 || xpos < 0)//right left collision
-        {
-            xvel *= -1;
-        }
-        if (ypos > 720 || ypos < 0) //top bottom collision
-        {
-            yvel *= -1;
-        }
-        xpos += xvel;
-        ypos += yvel;
+        testp.Move();
+        xpos = testp.getXpos();
+        ypos = testp.getYpos();
         //initial border collisions
         repaint();
     }
