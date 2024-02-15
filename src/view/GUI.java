@@ -217,7 +217,7 @@ public class GUI extends JFrame implements ActionListener{
             else if (!angleEndInput.getText().equals("")){
                 mainpanel.angleinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()), Float.parseFloat(angleEndInput.getText()),Float.parseFloat(velStartInput.getText()));
             }
-            else if (!angleEndInput.getText().equals("")){
+            else if (!velEndInput.getText().equals("")){
                 mainpanel.angleinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()), Float.parseFloat(velEndInput.getText()));
             }
             else{ //more than one has an input which is an error
