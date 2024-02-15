@@ -7,6 +7,8 @@ public class Controller {
 
     public void start(){
         this.gui = new GUI();
-        gui.toggleVisibility();;
+        gui.toggleVisibility();
+
+        
     }
 }

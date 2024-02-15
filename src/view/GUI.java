@@ -55,7 +55,7 @@ public class GUI extends JFrame implements ActionListener{
         //mainpanel.drawWall(0, 0, 1280, 720, null);
         
         sidepanel = new JPanel();
-        sidepanel.setPreferredSize(new Dimension(280, 720));
+        sidepanel.setMinimumSize(new Dimension(280, 720));
         sidepanel.setBackground(Color.gray);
         sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.Y_AXIS));
         sidepanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
@@ -152,7 +152,7 @@ public class GUI extends JFrame implements ActionListener{
             }
             else { //more than one has an input which is an error
                 JPanel col0 = new SidePanelRow(sidepanel).getPanel();
-                new LabelFormat("ERROR! Please have exactly one attribute with an end", col0, 15, BorderFactory.createEmptyBorder(10, 0, 10, 0));
+                new LabelFormat("ERROR!\n Please have exactly one attribute\n with an end", col0, 15, BorderFactory.createEmptyBorder(10, 0, 10, 0));
             }
             // reset
             nInput.setText("");
