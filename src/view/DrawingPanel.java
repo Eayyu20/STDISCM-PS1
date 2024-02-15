@@ -26,6 +26,10 @@ public class DrawingPanel extends JPanel implements ActionListener{
         palist.add(wasp);
     }
     //test
+    public void insertParticle(float x, float y, float a, float v){
+        Particle p = new Particle(x,y,a,v);
+        palist.add(p);
+    }
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         //g2d.drawLine(0,0,1280,720);
