@@ -58,136 +58,66 @@ public class GUI extends JFrame implements ActionListener{
         sidepanel.setPreferredSize(new Dimension(280, 720));
         sidepanel.setBackground(Color.gray);
         sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.Y_AXIS));
+        sidepanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         window.add(sidepanel, BorderLayout.EAST);
 
-        new LabelFormat("Add Particle", sidepanel, Font.BOLD, 15, BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        JPanel col0 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("Add Particle", col0, 15, BorderFactory.createEmptyBorder(5, 0, 10, 0));
         
-        new LabelFormat("Number of Particles", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        nInput = new JTextField();
-        nInput.setMaximumSize(new Dimension(100, 30));
-        nInput.setPreferredSize(new Dimension(100,20));
-        nInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        nInput.setHorizontalAlignment(JTextField.CENTER);
-        nInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(nInput);
-
-        new LabelFormat("X Start", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        xStartInput = new JTextField();
-        xStartInput.setMaximumSize(new Dimension(100, 30));
-        xStartInput.setPreferredSize(new Dimension(100,20));
-        xStartInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        xStartInput.setHorizontalAlignment(JTextField.CENTER);
-        xStartInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(xStartInput);
+        JPanel col1 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("No. of Particles", col1, 12, BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        nInput = new InputFormat(col1).getJTextField();
         
-        new LabelFormat("Y Start", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        yStartInput = new JTextField();
-        yStartInput.setMaximumSize(new Dimension(100, 30));
-        yStartInput.setPreferredSize(new Dimension(100,20));
-        yStartInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        yStartInput.setHorizontalAlignment(JTextField.CENTER);
-        yStartInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(yStartInput);
+        JPanel col2 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("X Start:", col2, 12, BorderFactory.createEmptyBorder(0, 19, 2, 0));
+        xStartInput = new InputFormat(col2).getJTextField();
+        new LabelFormat("Y Start:", col2, 12, BorderFactory.createEmptyBorder(0, 20, 2, 0));
+        yStartInput = new InputFormat(col2).getJTextField();
+        
+        JPanel col3 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat(" X End:", col3, 12, BorderFactory.createEmptyBorder(0, 29, 2, 0));
+        xEndInput = new InputFormat(col3).getJTextField();
+        new LabelFormat("Y End:", col3, 12, BorderFactory.createEmptyBorder(0, 30, 2, 0));
+        yEndInput = new InputFormat(col3).getJTextField();
+        
+        JPanel col4 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("  Θ Start:", col4, 12, BorderFactory.createEmptyBorder(0, 15, 2, 0));
+        angleStartInput = new InputFormat(col4).getJTextField();
+        new LabelFormat("Θ End:", col4, 12, BorderFactory.createEmptyBorder(0, 30, 2, 0));
+        angleEndInput = new InputFormat(col4).getJTextField();
 
-        new LabelFormat("X End", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        xEndInput = new JTextField();
-        xEndInput.setMaximumSize(new Dimension(100, 30));
-        xEndInput.setPreferredSize(new Dimension(100,20));
-        xEndInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        xEndInput.setHorizontalAlignment(JTextField.CENTER);
-        xEndInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(xEndInput);
+        JPanel col5 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("  V Start:", col5, 12, BorderFactory.createEmptyBorder(0, 17, 2, 0));
+        velStartInput = new InputFormat(col5).getJTextField();
+        new LabelFormat("V End:", col5, 12, BorderFactory.createEmptyBorder(0, 29, 15, 0));
+        velEndInput = new InputFormat(col5).getJTextField();
 
-        new LabelFormat("Y End", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        yEndInput = new JTextField();
-        yEndInput.setMaximumSize(new Dimension(100, 30));
-        yEndInput.setPreferredSize(new Dimension(100,20));
-        yEndInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        yEndInput.setHorizontalAlignment(JTextField.CENTER);
-        yEndInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(yEndInput);
-
-        new LabelFormat("Angle Start", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        angleStartInput = new JTextField();
-        angleStartInput.setMaximumSize(new Dimension(100, 30));
-        angleStartInput.setPreferredSize(new Dimension(100,20));
-        angleStartInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        angleStartInput.setHorizontalAlignment(JTextField.CENTER);
-        angleStartInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(angleStartInput);
-
-        new LabelFormat("Angle End", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        angleEndInput = new JTextField();
-        angleEndInput.setMaximumSize(new Dimension(100, 30));
-        angleEndInput.setPreferredSize(new Dimension(100,20));
-        angleEndInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        angleEndInput.setHorizontalAlignment(JTextField.CENTER);
-        angleEndInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(angleEndInput);
-
-        new LabelFormat("Velocity Start", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        velStartInput = new JTextField();
-        velStartInput.setMaximumSize(new Dimension(100, 30));
-        velStartInput.setPreferredSize(new Dimension(100,20));
-        velStartInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        velStartInput.setHorizontalAlignment(JTextField.CENTER);
-        velStartInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(velStartInput);
-
-        new LabelFormat("Velocity End", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        velEndInput = new JTextField();
-        velEndInput.setMaximumSize(new Dimension(100, 30));
-        velEndInput.setPreferredSize(new Dimension(100,20));
-        velEndInput.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        velEndInput.setHorizontalAlignment(JTextField.CENTER);
-        velEndInput.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(velEndInput);    
-
+        JPanel col6 = new SidePanelRow(sidepanel).getPanel();
         submitParticle = new JButton("Submit Particle");
         submitParticle.addActionListener(this);
-        sidepanel.add(submitParticle);
+        col6.add(submitParticle);
 
-        new LabelFormat("Add Wall", sidepanel, Font.BOLD, 15, BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        JPanel col7 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("Add Wall", col7, 15, BorderFactory.createEmptyBorder(10, 0, 10, 0));
+       
+        JPanel col8 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("x1", col8, 12, BorderFactory.createEmptyBorder(0, 10, 2, 0));
+        x1Input = new InputFormat(col8).getJTextField();
+        new LabelFormat("     y1", col8, 12, BorderFactory.createEmptyBorder(0, 0, 2, 0));
+        y1Input = new InputFormat(col8).getJTextField();
         
-        new LabelFormat("x1", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        x1Input = new JTextField();
-        x1Input.setMaximumSize(new Dimension(100, 30));
-        x1Input.setPreferredSize(new Dimension(100,20));
-        x1Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        x1Input.setHorizontalAlignment(JTextField.CENTER);
-        x1Input.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(x1Input);
+        JPanel col9 = new SidePanelRow(sidepanel).getPanel();
+        new LabelFormat("x2", col9, 12, BorderFactory.createEmptyBorder(0, 10, 2, 0));
+        x2Input = new InputFormat(col9).getJTextField();
+        new LabelFormat("     y2", col9, 12, BorderFactory.createEmptyBorder(0, 0, 15, 0));
+        y2Input = new InputFormat(col9).getJTextField();
 
-        new LabelFormat("y1", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        y1Input = new JTextField();
-        y1Input.setMaximumSize(new Dimension(100, 30));
-        y1Input.setPreferredSize(new Dimension(100,20));
-        y1Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        y1Input.setHorizontalAlignment(JTextField.CENTER);
-        y1Input.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(y1Input);
-
-        new LabelFormat("x2", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        x2Input = new JTextField();
-        x2Input.setMaximumSize(new Dimension(100, 30));
-        x2Input.setPreferredSize(new Dimension(100,20));
-        x2Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        x2Input.setHorizontalAlignment(JTextField.CENTER);
-        x2Input.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(x2Input);
-
-        new LabelFormat("y2", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
-        y2Input = new JTextField();
-        y2Input.setMaximumSize(new Dimension(100, 30));
-        y2Input.setPreferredSize(new Dimension(100,20));
-        y2Input.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-        y2Input.setHorizontalAlignment(JTextField.CENTER);
-        y2Input.setAlignmentY(JTextField.CENTER);
-        sidepanel.add(y2Input);
-
+        JPanel col10 = new SidePanelRow(sidepanel).getPanel();
         submitWall = new JButton("Submit Wall");
         submitWall.addActionListener(this);
-        sidepanel.add(submitWall);
+        col10.add(submitWall);
+
+        window.pack();
     }
 
     public void toggleVisibility(){
@@ -220,8 +150,9 @@ public class GUI extends JFrame implements ActionListener{
             else if (!velEndInput.getText().equals("")){
                 mainpanel.velinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()), Float.parseFloat(velEndInput.getText()));
             }
-            else{ //more than one has an input which is an error
-                System.out.println("ERROR! Please have exactly one attribute with an end");
+            else { //more than one has an input which is an error
+                JPanel col0 = new SidePanelRow(sidepanel).getPanel();
+                new LabelFormat("ERROR! Please have exactly one attribute with an end", col0, 15, BorderFactory.createEmptyBorder(10, 0, 10, 0));
             }
             // reset
             nInput.setText("");
