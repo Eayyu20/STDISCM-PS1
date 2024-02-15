@@ -128,7 +128,7 @@ public class GUI extends JFrame implements ActionListener{
             System.out.println(yInput.getText());
             System.out.println(deltaInput.getText());
             System.out.println(vInput.getText());
-
+            mainpanel.insertParticle(Float.parseFloat(xInput.getText()), Float.parseFloat(yInput.getText()), Float.parseFloat(deltaInput.getText()), Float.parseFloat(vInput.getText()));
             // reset
             xInput.setText("");
             yInput.setText("");

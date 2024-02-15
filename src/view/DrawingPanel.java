@@ -28,6 +28,8 @@ public class DrawingPanel extends JPanel implements ActionListener{
     DrawingPanel(){
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
+        /*
+        //testing
         for(int i=0;i<2;i++){
             palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(40)+10));
         }
@@ -35,6 +37,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         for(int i=0;i<2;i++){
             palist.get(i).libraryupdate(wah);
         }
+        */
         timer = new Timer(1000/60, this);
         timer.start();
         lastTime = System.currentTimeMillis();
@@ -43,10 +46,12 @@ public class DrawingPanel extends JPanel implements ActionListener{
     public void insertParticle(float x, float y, float a, float v){
         Particle p = new Particle(x,y,a,v);
         palist.add(p);
+        update(getGraphics());
     }
     public void insertWall(int x1, int y1, int x2, int y2){
         Wall w = new Wall(x1,y1,x2,y2);
         wlist.add(w);
+        update(getGraphics());
     }
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
