@@ -218,7 +218,7 @@ public class GUI extends JFrame implements ActionListener{
                 mainpanel.angleinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()), Float.parseFloat(angleEndInput.getText()),Float.parseFloat(velStartInput.getText()));
             }
             else if (!velEndInput.getText().equals("")){
-                mainpanel.angleinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()), Float.parseFloat(velEndInput.getText()));
+                mainpanel.velinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()), Float.parseFloat(velEndInput.getText()));
             }
             else{ //more than one has an input which is an error
                 System.out.println("error, more than one has an end, make sure that only one type has a end");
