@@ -48,6 +48,34 @@ public class DrawingPanel extends JPanel implements ActionListener{
         palist.add(p);
         update(getGraphics());
     }
+    public void distinsert(int n, float x1, float y1, float x2, float y2, float a, float v){
+        for (int i = 0; i < n; i++) {
+            double ratio = (double) i / (n - 1);
+            float xplace = (float) (x1 + ratio * (x2 - x1));
+            float yplace = (float) (y1 + ratio * (y2 - y1));
+            Particle p = new Particle(xplace,yplace,a,v);
+            palist.add(p);
+        }
+        update(getGraphics());
+    }
+    public void angleinsert(int n, float x, float y, float a1, float a2, float v){
+        for (int i = 0; i < n; i++) {
+            double ratio = (double) i / (n - 1);
+            float aplace = (float) (a1 + ratio * (a2 - a1));
+            Particle p = new Particle(x,y,aplace,v);
+            palist.add(p);
+        }
+        update(getGraphics());
+    }
+    public void velinsert(int n, float x, float y, float a, float v1, float v2){
+        for (int i = 0; i < n; i++) {
+            double ratio = (double) i / (n - 1);
+            float vplace = (float) (v1 + ratio * (v2 - v1));
+            Particle p = new Particle(x,y,a,vplace);
+            palist.add(p);
+        }
+        update(getGraphics());
+    }
     public void insertWall(int x1, int y1, int x2, int y2){
         Wall w = new Wall(x1,y1,x2,y2);
         wlist.add(w);
