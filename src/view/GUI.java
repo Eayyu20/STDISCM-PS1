@@ -55,20 +55,9 @@ public class GUI extends JFrame implements ActionListener{
         sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.Y_AXIS));
         window.add(sidepanel, BorderLayout.EAST);
 
-        JLabel addParticleText = new JLabel("Add Particle");
-        addParticleText.setAlignmentX(Component.CENTER_ALIGNMENT);
-        addParticleText.setFont(new Font("Ubuntu", Font.BOLD, 15));
-        // addParticleText.setForeground(new Color(0x315AEB));
-        // addParticleText.setBorder(BorderFactory.createEmptyBorder( 0, 0, 50, 0 ));
-        addParticleText.setPreferredSize(new Dimension(100, 30));
-        sidepanel.add(addParticleText);
-        
-        JLabel xText = new JLabel("x: ");
-        xText.setHorizontalTextPosition(JLabel.CENTER);
-        xText.setVerticalTextPosition(JLabel.TOP);
-        xText.setFont(new Font("Ubuntu", Font.BOLD, 15));
-        xText.setPreferredSize(new Dimension(100, 30));
-        sidepanel.add(xText);
+        LabelFormat addParticleText = new LabelFormat("Add Particle", sidepanel, Font.BOLD, 15, BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        LabelFormat xText = new LabelFormat("x", sidepanel, Font.PLAIN, 15, BorderFactory.createEmptyBorder(0, 0, 2, 0));
+    
 
         xInput = new JTextField();
         xInput.setMaximumSize(new Dimension(100, 30));
@@ -81,7 +70,7 @@ public class GUI extends JFrame implements ActionListener{
         JLabel yText = new JLabel("y: ");
         yText.setHorizontalTextPosition(JLabel.CENTER);
         yText.setVerticalTextPosition(JLabel.TOP);
-        yText.setFont(new Font("Ubuntu", Font.BOLD, 15));
+        yText.setFont(new Font("Ubuntu", Font.PLAIN, 15));
         yText.setPreferredSize(new Dimension(100, 30));
         sidepanel.add(yText);
 
@@ -96,7 +85,7 @@ public class GUI extends JFrame implements ActionListener{
         JLabel deltaText = new JLabel("delta: ");
         deltaText.setHorizontalTextPosition(JLabel.CENTER);
         deltaText.setVerticalTextPosition(JLabel.TOP);
-        deltaText.setFont(new Font("Ubuntu", Font.BOLD, 15));
+        deltaText.setFont(new Font("Ubuntu", Font.PLAIN, 15));
         deltaText.setPreferredSize(new Dimension(100, 30));
         sidepanel.add(deltaText);
 
@@ -108,10 +97,10 @@ public class GUI extends JFrame implements ActionListener{
         deltaInput.setAlignmentY(JTextField.CENTER);
         sidepanel.add(deltaInput);
 
-        JLabel vText = new JLabel("V: ");
+        JLabel vText = new JLabel("v: ");
         vText.setHorizontalTextPosition(JLabel.CENTER);
         vText.setVerticalTextPosition(JLabel.TOP);
-        vText.setFont(new Font("Ubuntu", Font.BOLD, 15));
+        vText.setFont(new Font("Ubuntu", Font.PLAIN, 15));
         vText.setPreferredSize(new Dimension(100, 30));
         sidepanel.add(vText);
 
@@ -140,6 +129,7 @@ public class GUI extends JFrame implements ActionListener{
             System.out.println(deltaInput.getText());
             System.out.println(vInput.getText());
 
+            // reset
             xInput.setText("");
             yInput.setText("");
             deltaInput.setText("");
