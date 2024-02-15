@@ -6,15 +6,13 @@ public class Particle extends JComponent{
 
     float xpos;
     float ypos;
-    float xvel;
-    float vel;
-    float angle;
+    public int xvel; 
+    public int yvel;
     public Particle(float x, float y, float a, float v){
         xpos = x;
         ypos = y;
-        angle = a;
-        vel = v;
-        Move();
+        xvel = (int) (v*Math.cos(Math.toRadians(a)));
+        yvel = (int) (v*Math.sin(Math.toRadians(a)));
     }
     //move function
     //while loop that'll make the point move throughout the velocities and it hits walls
@@ -22,20 +20,20 @@ public class Particle extends JComponent{
     {
             //update position
             bounce();
-            xpos = (float) (xpos + Math.cos (angle) * vel);
-            ypos = (float) (ypos + Math.sin (angle) * vel);
+            xpos += xvel;
+            ypos += yvel;
     }
         
     
     void bounce(){
         //initial border collisions
-        if (xpos+1 > 1280 || xpos-1 < 0)//right left collision
+        if (xpos >= 1280 || xpos < 0)//right left collision
         {
-            angle = 180 - angle;
+            xvel *= -1;
         }
-        if (ypos+1 > 720 || ypos-1 < 0) //top bottom collision
+        if (ypos > 720 || ypos < 0) //top bottom collision
         {
-            angle = 360 - angle;
+            yvel *= -1;
         }
     }
     public float getXpos(){
@@ -44,10 +42,10 @@ public class Particle extends JComponent{
     public float getYpos(){
         return ypos;
     }
-    public float getvel(){
-        return vel;
+    public int getxvel(){
+        return xvel;
     }
-    public float getang(){
-        return angle;
+    public int getyvel(){
+        return yvel;
     }
 }
