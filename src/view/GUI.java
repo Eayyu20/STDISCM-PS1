@@ -230,6 +230,7 @@ public class GUI extends JFrame implements ActionListener{
             xEndInput.setText("");
             yEndInput.setText("");
             angleStartInput.setText("");
+            angleEndInput.setText("");
             yStartInput.setText("");
             velStartInput.setText("");
             velEndInput.setText("");
