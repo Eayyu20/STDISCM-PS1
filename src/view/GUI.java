@@ -108,7 +108,7 @@ public class GUI extends JFrame implements ActionListener{
         deltaInput.setAlignmentY(JTextField.CENTER);
         sidepanel.add(deltaInput);
 
-        JLabel vText = new JLabel("delta: ");
+        JLabel vText = new JLabel("V: ");
         vText.setHorizontalTextPosition(JLabel.CENTER);
         vText.setVerticalTextPosition(JLabel.TOP);
         vText.setFont(new Font("Ubuntu", Font.BOLD, 15));
@@ -139,11 +139,15 @@ public class GUI extends JFrame implements ActionListener{
             System.out.println(yInput.getText());
             System.out.println(deltaInput.getText());
             System.out.println(vInput.getText());
+
+            xInput.setText("");
+            yInput.setText("");
+            deltaInput.setText("");
+            vInput.setText("");
+
         }
         else if (e.getSource() == submitWall){
-
-
-
+        
         }
     }
 
