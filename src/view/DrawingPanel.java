@@ -17,7 +17,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
     public Particle testp = new Particle(0, 0, 45,10);
     public Particle tesp = new Particle(50, 20, 70,30);
     public Particle wasp = new Particle(1270, 710, -60,5);
-    public Wall wah = new Wall(0,0,1280,720);
+    public Wall wah = new Wall(1280/2,0,1280/2,720);
     Timer timer;
     public float xpos = 0;
     public float ypos = 0;
@@ -28,10 +28,13 @@ public class DrawingPanel extends JPanel implements ActionListener{
     DrawingPanel(){
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
-        for(int i=0;i<1000;i++){
-            palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(49)+1));
+        for(int i=0;i<2;i++){
+            palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(40)+10));
         }
         wlist.add(wah);
+        for(int i=0;i<2;i++){
+            palist.get(i).libraryupdate(wah);
+        }
         timer = new Timer(1000/60, this);
         timer.start();
         lastTime = System.currentTimeMillis();
@@ -54,7 +57,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.setColor(Color.white);
         
         for (int i = 0; i<palist.size(); i++){
-            g2d.fillOval(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),2,2);
+            g2d.fillOval(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),10,10);
         } 
         for (int i = 0; i<wlist.size(); i++){
             g2d.drawLine(wlist.get(i).getX1(), wlist.get(i).getY1(), wlist.get(i).getX2(), wlist.get(i).getY2());

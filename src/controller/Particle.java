@@ -18,23 +18,20 @@ public class Particle extends JComponent{
         wlibrary = new ArrayList<>();
     }
     //move function
-    
+    public void libraryupdate(Wall w)
+    {
+        wlibrary.add(w);
+    }
     //while loop that'll make the point move throughout the velocities and it hits walls
     public void Move()
     {
-        /* 
-            for (Wall wall: wlibrary){
-                if (this.intersects)
-            }*/
-            //update position
+            //wallbounce();
             bounce();
             xpos += xvel;
             ypos += yvel;
             repaint();
             
-    }
-        
-    
+    }   
     void bounce(){
         //initial border collisions
         if (xpos >= 1280 || xpos < 0)//right left collision
