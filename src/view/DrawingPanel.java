@@ -50,7 +50,11 @@ public class DrawingPanel extends JPanel implements ActionListener{
             float xplace = (float) (x1 + ratio * (x2 - x1));
             float yplace = (float) (y1 + ratio * (y2 - y1));
             Particle p = new Particle(xplace,yplace,a,v);
+            for(int j=0; j<wlist.size();j++){
+                p.libraryupdate(wlist.get(j));
+            }
             palist.add(p);
+            
         }
         update(getGraphics());
     }
@@ -59,6 +63,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
             double ratio = (double) i / (n - 1);
             float aplace = (float) (a1 + ratio * (a2 - a1));
             Particle p = new Particle(x,y,aplace,v);
+            for(int j=0; j<wlist.size();j++){
+                p.libraryupdate(wlist.get(j));
+            }
             palist.add(p);
         }
         update(getGraphics());
@@ -68,6 +75,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
             double ratio = (double) i / (n - 1);
             float vplace = (float) (v1 + ratio * (v2 - v1));
             Particle p = new Particle(x,y,a,vplace);
+            for(int j=0; j<wlist.size();j++){
+                p.libraryupdate(wlist.get(j));
+            }
             palist.add(p);
         }
         update(getGraphics());
@@ -75,6 +85,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
     public void insertWall(int x1, int y1, int x2, int y2){
         Wall w = new Wall(x1,y1,x2,y2);
         wlist.add(w);
+        for (int i = 0; i<palist.size(); i++){
+            palist.get(i).libraryupdate(w);
+        } 
         update(getGraphics());
     }
     public void paint(Graphics g){
@@ -87,7 +100,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.setColor(Color.white);
         
         for (int i = 0; i<palist.size(); i++){
-            g2d.fillOval(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),10,10);
+            g2d.fillRect(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),10,10);
         } 
         for (int i = 0; i<wlist.size(); i++){
             g2d.drawLine(wlist.get(i).getX1(), wlist.get(i).getY1(), wlist.get(i).getX2(), wlist.get(i).getY2());
@@ -113,6 +126,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
             palist.get(i).Move();
             xpos = palist.get(i).getXpos();
             ypos = palist.get(i).getYpos();
+            for(int j=0; j<wlist.size();j++){
+                palist.get(i).libraryupdate(wlist.get(j));
+            }
             repaint();
         }
     }
