@@ -55,7 +55,8 @@ public class GUI extends JFrame implements ActionListener{
         //mainpanel.drawWall(0, 0, 1280, 720, null);
         
         sidepanel = new JPanel();
-        sidepanel.setMinimumSize(new Dimension(280, 720));
+        sidepanel.setPreferredSize(new Dimension(270, 720));
+        sidepanel.setMinimumSize(new Dimension(270, 720));
         sidepanel.setBackground(Color.gray);
         sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.Y_AXIS));
         sidepanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
