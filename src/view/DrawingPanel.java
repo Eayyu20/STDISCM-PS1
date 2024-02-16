@@ -24,16 +24,6 @@ public class DrawingPanel extends JPanel implements ActionListener{
     DrawingPanel(){
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
-        /*
-        //testing
-        for(int i=0;i<2;i++){
-            palist.add(new Particle(rand.nextInt(1280), rand.nextInt(720), rand.nextInt(360), rand.nextInt(40)+10));
-        }
-        wlist.add(wah);
-        for(int i=0;i<2;i++){
-            palist.get(i).libraryupdate(wah);
-        }
-        */
         timer = new Timer(500/60, this);
         timer.start();
         lastTime = System.currentTimeMillis();
