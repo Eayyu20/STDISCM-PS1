@@ -40,12 +40,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
             float xplace = (float) (x1 + ratio * (x2 - x1));
             float yplace = (float) (y1 + ratio * (y2 - y1));
             Particle p = new Particle(xplace,yplace,a,v);
-            for(int j=0; j<wlist.size();j++){
-                p.libraryupdate(wlist.get(j));
-            }
-            for(int j=0; j<wlist.size();j++){
-                p.libraryupdate(wlist.get(j));
-            }
+            p.libraryupdate(wlist);
             palist.add(p);
             
         }
@@ -56,9 +51,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
             double ratio = (double) i / (n - 1);
             float aplace = (float) (a1 + ratio * (a2 - a1));
             Particle p = new Particle(x,y,aplace,v);
-            for(int j=0; j<wlist.size();j++){
-                p.libraryupdate(wlist.get(j));
-            }
+            p.libraryupdate(wlist);
             palist.add(p);
         }
         update(getGraphics());
@@ -68,9 +61,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
             double ratio = (double) i / (n - 1);
             float vplace = (float) (v1 + ratio * (v2 - v1));
             Particle p = new Particle(x,y,a,vplace);
-            for(int j=0; j<wlist.size();j++){
-                p.libraryupdate(wlist.get(j));
-            }
+            p.libraryupdate(wlist);
             palist.add(p);
         }
         update(getGraphics());
@@ -79,7 +70,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         Wall w = new Wall(x1,y1,x2,y2);
         wlist.add(w);
         for (int i = 0; i<palist.size(); i++){
-            palist.get(i).libraryupdate(w);
+            palist.get(i).libraryupdate(wlist);
         } 
         update(getGraphics());
     }
@@ -115,9 +106,8 @@ public class DrawingPanel extends JPanel implements ActionListener{
             palist.get(i).Move();
             xpos = palist.get(i).getXpos();
             ypos = palist.get(i).getYpos();
-            for(int j=0; j<wlist.size();j++){
-                palist.get(i).libraryupdate(wlist.get(j));
-            }
+            if (palist.get(i).checklibrary().size() < wlist.size()){
+                palist.get(i).libraryupdate(wlist);}
             repaint();
         }
     }

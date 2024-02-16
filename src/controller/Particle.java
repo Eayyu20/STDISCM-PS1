@@ -17,9 +17,12 @@ public class Particle extends JComponent{
         wlibrary = new ArrayList<>();
     }
     //move function
-    public void libraryupdate(Wall w)
+    public void libraryupdate(ArrayList<Wall> w)
     {
-        wlibrary.add(w);
+        wlibrary = w;
+    }
+    public ArrayList<Wall> checklibrary(){
+        return wlibrary;
     }
     public void Move()
     {   
