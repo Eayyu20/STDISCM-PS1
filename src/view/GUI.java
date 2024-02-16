@@ -141,7 +141,9 @@ public class GUI extends JFrame implements ActionListener{
             System.out.println(velStartInput.getText());
             System.out.println(velEndInput.getText());
             // mainpanel.insertParticle(Float.parseFloat(xInput.getText()), Float.parseFloat(yInput.getText()), Float.parseFloat(deltaInput.getText()), Float.parseFloat(vInput.getText()));
-            
+            if (Integer.parseInt(nInput.getText()) == 1){
+                mainpanel.insertParticle( Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()));
+            }
             if (!xEndInput.getText().equals("")){
                 mainpanel.distinsert(Integer.parseInt(nInput.getText()), Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(xEndInput.getText()), Float.parseFloat(yEndInput.getText()), Float.parseFloat(angleStartInput.getText()), Float.parseFloat(velStartInput.getText()));
             }

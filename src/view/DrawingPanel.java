@@ -53,6 +53,9 @@ public class DrawingPanel extends JPanel implements ActionListener{
             for(int j=0; j<wlist.size();j++){
                 p.libraryupdate(wlist.get(j));
             }
+            for(int j=0; j<wlist.size();j++){
+                p.libraryupdate(wlist.get(j));
+            }
             palist.add(p);
             
         }
@@ -131,8 +134,4 @@ public class DrawingPanel extends JPanel implements ActionListener{
             repaint();
         }
     }
-    /*public void drawWall(int x1, int y1, int x2, int y2, Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.drawLine(x1,y1,x2,y2);
-    }*/
 }
