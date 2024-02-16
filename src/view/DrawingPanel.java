@@ -7,10 +7,12 @@ import java.util.Random;
 import javax.swing.*;
 import controller.Particle;
 import controller.Wall;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class DrawingPanel extends JPanel implements ActionListener{
     final int PANEL_WIDTH = 1280;
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
     final int PANEL_HEIGHT = 720;
     public ArrayList<Particle> palist;
     public ArrayList<Wall> wlist;
@@ -83,7 +85,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.fillRect(0, 0, 1280, 720);
         g2d.setColor(Color.white);
         for (int i = 0; i<palist.size(); i++){
-            g2d.fillRect((int) Math.round((palist.get(i).getXpos())), (int) Math.round(palist.get(i).getYpos()),10,10);
+            g2d.fillRect((int) Math.round((palist.get(i).getXpos())), (int) Math.round(palist.get(i).getYpos()),1,1);
         } 
         for (int i = 0; i<wlist.size(); i++){
             g2d.drawLine(wlist.get(i).getX1(), wlist.get(i).getY1(), wlist.get(i).getX2(), wlist.get(i).getY2());
@@ -101,14 +103,24 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.drawString("FPS: " + fps, 10,10);
     }
     @Override
-    public void actionPerformed(ActionEvent e){
-        for (int i = 0; i<palist.size(); i++){
-            palist.get(i).Move();
-            xpos = palist.get(i).getXpos();
-            ypos = palist.get(i).getYpos();
-            if (palist.get(i).checklibrary().size() < wlist.size()){
-                palist.get(i).libraryupdate(wlist);}
-            repaint();
-        }
+public void actionPerformed(ActionEvent e) {
+    int size = palist.size();
+    int chunkSize = size / 4;
+
+    for (int i = 0; i < 4; i++) {
+        final int start = i * chunkSize;
+        final int end = (i == 3) ? size : start + chunkSize; // Handle remainder for the last chunk
+
+        executorService.submit(() -> {
+            for (int j = start; j < end; j++) {
+                Particle particle = palist.get(j);
+                particle.Move();
+                if (particle.checklibrary().size() < wlist.size()) {
+                    particle.libraryupdate(wlist);
+                }
+            }
+            SwingUtilities.invokeLater(() -> repaint());
+        });
     }
+}
 }
