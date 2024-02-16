@@ -19,11 +19,26 @@ public class Particle extends JComponent{
     public void libraryupdate(Wall w){wlibrary.add(w);}
     public void Move()
     {   
+            wallbounce();
             bounce();
             xpos += xvel;
             ypos += yvel;    
             repaint();
     }  
+    public void wallbounce(){
+        for(int i = 0; i<wlibrary.size(); i++){
+            if(wlibrary.get(i).getX1() == wlibrary.get(i).getX2()){ //vertical wall
+                if (xpos == wlibrary.get(i).getX1()){
+                    xvel *= -1;
+                }
+            }
+            if(wlibrary.get(i).getY1() == wlibrary.get(i).getY2()){ //vertical wall
+                if (ypos == wlibrary.get(i).getY1()){
+                    yvel *= -1;
+                }
+            }
+        }
+    }
     public void bounce(){
         //initial border collisions
         if (xpos >= 1280 || xpos < 0)//right left collision
