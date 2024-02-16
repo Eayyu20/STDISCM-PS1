@@ -18,7 +18,6 @@ public class LabelFormat{
         
         Biglabel = new JLabel(name);
         Biglabel.setFont(new Font("Ubuntu", Font.BOLD, fontSize));
-        // Biglabel.setForeground(new Color(0x315AEB));
         Biglabel.setBorder(margin);
         Biglabel.setPreferredSize(new Dimension(120, 30));
         Biglabel.setAlignmentX(JLabel.CENTER);

@@ -43,7 +43,6 @@ public class GUI extends JFrame implements ActionListener{
         mainpanel.setPreferredSize(new Dimension(1280, 720));
         mainpanel.setBackground(Color.white);
         window.add(mainpanel, BorderLayout.WEST);
-        //mainpanel.drawWall(0, 0, 1280, 720, null);
         
         sidepanel = new JPanel();
         sidepanel.setPreferredSize(new Dimension(270, 720));
@@ -120,19 +119,7 @@ public class GUI extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submitParticle){
             
-            // add error checking
-            
-            System.out.println(nInput.getText());
-            System.out.println(xStartInput.getText());
-            System.out.println(yStartInput.getText());
-            System.out.println(xEndInput.getText());
-            System.out.println(yEndInput.getText());
-            System.out.println(angleStartInput.getText());
-            System.out.println(angleEndInput.getText());
-            System.out.println(velStartInput.getText());
-            System.out.println(velEndInput.getText());
-            // mainpanel.insertParticle(Float.parseFloat(xInput.getText()), Float.parseFloat(yInput.getText()), Float.parseFloat(deltaInput.getText()), Float.parseFloat(vInput.getText()));
-            if (Integer.parseInt(nInput.getText()) == 1){
+               if (Integer.parseInt(nInput.getText()) == 1){
                 mainpanel.insertParticle( Float.parseFloat(xStartInput.getText()),Float.parseFloat(yStartInput.getText()), Float.parseFloat(angleStartInput.getText()),Float.parseFloat(velStartInput.getText()));
             }
             if (!xEndInput.getText().equals("")){
@@ -162,14 +149,9 @@ public class GUI extends JFrame implements ActionListener{
 
         }
         else if (e.getSource() == submitWall){
-
-            // add error checking
-
-            System.out.println(x1Input.getText());
-            System.out.println(y1Input.getText());
-            System.out.println(x2Input.getText());
-            System.out.println(y2Input.getText());
+            
             mainpanel.insertWall(Integer.parseInt(x1Input.getText()), Integer.parseInt(y1Input.getText()), Integer.parseInt(x2Input.getText()), Integer.parseInt(y2Input.getText()));
+            
             // reset
             x1Input.setText("");
             y1Input.setText("");
