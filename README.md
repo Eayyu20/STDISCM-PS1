@@ -33,4 +33,6 @@ A particle physics simulator that utilizes multithreading to handle multiple bou
 4. Click submit to update the canvas.
 
 ## Libraries used:
-- 
+- java.awt
+- java.swing
+- java.util
