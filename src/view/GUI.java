@@ -2,24 +2,15 @@ package view;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.HeadlessException;
-import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import controller.Particle;
-import java.awt.Graphics2D;
-import view.*;
 
 public class GUI extends JFrame implements ActionListener{
 
     private JFrame window;
     private DrawingPanel mainpanel;
     private JPanel sidepanel;
-    private Particle testp;
 
     private JTextField nInput;
     private JTextField xStartInput;

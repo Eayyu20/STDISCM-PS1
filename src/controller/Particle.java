@@ -1,6 +1,5 @@
 package controller;
 import javax.swing.JComponent;
-import controller.Wall;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 public class Particle extends JComponent{
