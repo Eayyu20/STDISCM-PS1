@@ -9,6 +9,7 @@ public class Particle extends JComponent{
     public double xvel; 
     public double yvel;
     public ArrayList<Wall> wlibrary;
+    private long lastTime = System.nanoTime();
     public Particle(double x, double y, double a, double v) {
         xpos = x;
         ypos = y;
@@ -28,8 +29,11 @@ public class Particle extends JComponent{
     {   
             wallbounce();
             bounce();
-            xpos += xvel;
-            ypos += yvel;    
+            long currentTime = System.nanoTime();
+            double timeElapsed = (currentTime - lastTime) / 1_000_000_000.0; // Time elapsed in seconds
+            lastTime = currentTime;
+            xpos += xvel * timeElapsed;
+            ypos += yvel * timeElapsed;;    
             repaint();
             
     }   
