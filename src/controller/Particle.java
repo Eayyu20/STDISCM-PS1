@@ -24,11 +24,11 @@ public class Particle extends JComponent{
     }
     //while loop that'll make the point move throughout the velocities and it hits walls
     public void Move()
-    {
+    {   
             wallbounce();
             bounce();
             xpos += xvel;
-            ypos += yvel;
+            ypos += yvel;    
             repaint();
             
     }   
