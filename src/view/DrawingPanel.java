@@ -103,11 +103,12 @@ public class DrawingPanel extends JPanel implements ActionListener{
     @Override
 public void actionPerformed(ActionEvent e) {
     int size = palist.size();
+    int numThreads = Math.min(4, size); // Use a minimum of  4 threads, or less if the size is smaller
     int chunkSize = size / 4;
 
     for (int i = 0; i < 4; i++) {
         final int start = i * chunkSize;
-        final int end = (i == 3) ? size : start + chunkSize; // Handle remainder for the last chunk
+        final int end = (i == numThreads - 1) ? size : start + chunkSize; // Handle remainder for the last chunk
 
         executorService.submit(() -> {
             for (int j = start; j < end; j++) {
