@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 import javax.swing.*;
 import controller.Particle;
 import controller.Wall;
@@ -22,7 +21,6 @@ public class DrawingPanel extends JPanel implements ActionListener{
     public long lastTime;
     private int frames;
     private int fps;
-    Random rand = new Random(); //test
     DrawingPanel(){
         palist = new ArrayList<>();
         wlist = new ArrayList<>();
