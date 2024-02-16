@@ -2,9 +2,7 @@ package view;
 
 import java.awt.Color;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SidePanelRow {
