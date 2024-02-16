@@ -15,8 +15,8 @@ public class DrawingPanel extends JPanel implements ActionListener{
     public ArrayList<Particle> palist;
     public ArrayList<Wall> wlist;
     Timer timer;
-    public float xpos = 0;
-    public float ypos = 0;
+    public double xpos = 0;
+    public double ypos = 0;
     public long lastTime;
     private int frames;
     private int fps;
@@ -102,7 +102,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.fillRect(0, 0, 1280, 720);
         g2d.setColor(Color.white);
         for (int i = 0; i<palist.size(); i++){
-            g2d.fillRect(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),10,10);
+            g2d.fillRect((int) Math.round((palist.get(i).getXpos())), (int) Math.round(palist.get(i).getYpos()),10,10);
         } 
         for (int i = 0; i<wlist.size(); i++){
             g2d.drawLine(wlist.get(i).getX1(), wlist.get(i).getY1(), wlist.get(i).getX2(), wlist.get(i).getY2());

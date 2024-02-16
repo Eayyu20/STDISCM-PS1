@@ -5,16 +5,16 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 public class Particle extends JComponent{
 
-    public float xpos;
-    public float ypos;
-    public int xvel; 
-    public int yvel;
+    public double xpos;
+    public double ypos;
+    public double xvel; 
+    public double yvel;
     public ArrayList<Wall> wlibrary;
-    public Particle(float x, float y, float a, float v){
+    public Particle(double x, double y, double a, double v) {
         xpos = x;
         ypos = y;
-        xvel = (int) (v*Math.cos(Math.toRadians(a)));
-        yvel = (int) (v*Math.sin(Math.toRadians(a)));
+        xvel = v * Math.cos(Math.toRadians(a));
+        yvel = v * Math.sin(Math.toRadians(a));
         wlibrary = new ArrayList<>();
     }
     //move function
@@ -36,20 +36,15 @@ public class Particle extends JComponent{
             Wall wall = wlibrary.get(i);
             if (intersectsWall(wall.getX1(), wall.getY1(), wall.getX2(), wall.getY2())) {
                 double wallAngle = Math.atan2(wall.getY2() - wall.getY1(), wall.getX2() - wall.getX1());
-    
                 double velAngle = Math.atan2(yvel, xvel);
-    
                 double incidenceAngle = wallAngle - velAngle;
-    
-                double speed = Math.sqrt(xvel * xvel + yvel * yvel);
+                double speed = Math.hypot(xvel, yvel);
                 velAngle = wallAngle + incidenceAngle;
-                xvel = (int) (speed * Math.cos(velAngle));
-                yvel = (int) (speed * Math.sin(velAngle));
-    
-                float radius = 5.0f;
+                xvel = speed * Math.cos(velAngle);
+                yvel = speed * Math.sin(velAngle);
+                double radius = 5.0;
                 xpos += radius * Math.cos(velAngle);
                 ypos += radius * Math.sin(velAngle);
-    
                 break;
             }
         }
@@ -74,16 +69,16 @@ public class Particle extends JComponent{
             yvel *= -1;
         }
     }
-    public float getXpos(){
+    public double getXpos(){
         return xpos;
     }
-    public float getYpos(){
+    public double getYpos(){
         return ypos;
     }
-    public int getxvel(){
+    public double getxvel(){
         return xvel;
     }
-    public int getyvel(){
+    public double getyvel(){
         return yvel;
     }
 }
