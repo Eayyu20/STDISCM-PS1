@@ -34,7 +34,7 @@ public class DrawingPanel extends JPanel implements ActionListener{
             palist.get(i).libraryupdate(wah);
         }
         */
-        timer = new Timer(1000/60, this);
+        timer = new Timer(500/60, this);
         timer.start();
         lastTime = System.currentTimeMillis();
     }
@@ -98,7 +98,6 @@ public class DrawingPanel extends JPanel implements ActionListener{
         g2d.setColor(Color.black);
         g2d.fillRect(0, 0, 1280, 720);
         g2d.setColor(Color.white);
-        
         for (int i = 0; i<palist.size(); i++){
             g2d.fillRect(Math.round(palist.get(i).getXpos()),Math.round(palist.get(i).getYpos()),10,10);
         } 
